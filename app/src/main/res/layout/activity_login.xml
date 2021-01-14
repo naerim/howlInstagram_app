@@ -27,10 +27,10 @@
             android:layout_marginRight="20dp">
 
             <EditText
+                android:id="@+id/email_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
-                android:text="@string/email" />
+                android:hint="@string/email" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -40,13 +40,14 @@
             android:layout_marginRight="20dp">
 
             <EditText
+                android:id="@+id/password_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:text="@string/password" />
+                android:hint="@string/password" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <android.widget.Button
+            android:id="@+id/email_login_button"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
