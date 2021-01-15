@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signinAndSignup(){
-        auth?.createUserWithEmailAndPassword(email_edittext.toString(), password_edittext.toString())
+        auth?.createUserWithEmailAndPassword(email_edittext.text.toString(), password_edittext.text.toString())
             ?.addOnCompleteListener {
             task ->
                 if(task.isSuccessful){
@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     fun signinEmail(){
-        auth?.signInWithEmailAndPassword(email_edittext.toString(), password_edittext.toString())
+        auth?.signInWithEmailAndPassword(email_edittext.text.toString(), password_edittext.text.toString())
             ?.addOnCompleteListener {
                     task ->
                 if(task.isSuccessful){
