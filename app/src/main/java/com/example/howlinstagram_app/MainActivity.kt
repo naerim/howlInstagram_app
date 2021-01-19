@@ -1,13 +1,16 @@
 package com.example.howlinstagram_app
 
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import com.example.howlinstagram_app.navigation.AlarmFragment
-import com.example.howlinstagram_app.navigation.DetailViewFragment
-import com.example.howlinstagram_app.navigation.GridFragment
-import com.example.howlinstagram_app.navigation.UserFragment
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.example.howlinstagram_app.navigation.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
     lateinit var bottom_navigation : BottomNavigationView
@@ -30,6 +33,9 @@ class MainActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.action_add_photo -> {
+                    if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
+                        startActivity(Intent(this, AddPhotoActivity::class.java))
+                    }
                     true
                 }
                 R.id.action_favorite_alarm -> {
@@ -45,5 +51,8 @@ class MainActivity : AppCompatActivity() {
             }
             return@setOnNavigationItemSelectedListener false
         }
+
+        // 사진에 접근할 수 있는 권한
+        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),1)
     }
 }
